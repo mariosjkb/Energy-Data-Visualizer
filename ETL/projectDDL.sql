@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `stats_database`.`YEARS` (
   `decade` VARCHAR(10) NULL,
   `twenty_year_period` VARCHAR(10) NULL,
   PRIMARY KEY (`id_years`),
-  INDEX `year` (`year` ASC) INVISIBLE,
+  INDEX `year` (`year` ASC) VISIBLE,
   CONSTRAINT `year`
     FOREIGN KEY (`year`)
     REFERENCES `stats_database`.`MEASUREMENTS` (`measurement_year`)
