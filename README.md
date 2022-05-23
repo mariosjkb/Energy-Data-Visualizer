@@ -21,12 +21,7 @@ Delivarable are in greek for the class' purposes.
 
 ## Usage
 To run the app in your machine:
-1. You need to install npm in server and charts-generator to be able to run the app.
-   cd server
-   npm install
-   
-   cd charts-generator
-   npm install
+1. You need to install npm in server and charts-generator directories to be able to run the app.
 2. To run the server: 
     cd server/src
     node index.js
