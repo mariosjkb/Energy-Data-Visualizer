@@ -21,7 +21,7 @@ Delivarable are in greek for the class' purposes.
 
 ## Usage
 To run the app in your machine:
-1. You need to install npm in charts-generator directory to be able to run the app.
+1. You need to install npm in charts-generator directory to be able to run the app because they are not available to save some space(check .gitignore).
 2. To run the server: \
     cd server/src\
     node index.js
