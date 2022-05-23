@@ -28,6 +28,9 @@ To run the app in your machine:
 3. To run the client:\
     cd charts-generator/src\
     ng serve --open(the browser opens automatically)
+ 
+## Notes
+Google Chrome was used as main browser.
 
 ## Contributor
 + [Marios Iakovidis](https://github.com/mariosjkb)
