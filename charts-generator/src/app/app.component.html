@@ -1,0 +1,143 @@
+<!-- MARIOS IAKOVIDIS
+HTML file that creates the main app interface-->
+
+<html>
+  <body>
+    <!--Toolbar-->
+    <mat-toolbar color="warn" [style.height.px]="40">
+      <span>Energy Data Visualizer</span>
+      <button
+        mat-button
+        class="about-button"
+        onclick="window.location.href = 'about.html'"
+      >
+        About
+      </button>
+    </mat-toolbar>
+
+    <!-- Div that contains all the forms-->
+    <div class="center">
+      <!-- Form to pick graph type-->
+      <mat-form-field appearance="fill" color="warn">
+        <mat-label>Graph Type*</mat-label>
+        <mat-select [formControl]="graphType">
+          <mat-option *ngFor="let type of availableGraphTypes" [value]="type">{{
+            type
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Form to pick countries-->
+      <h4>
+        Pick country (exactly one for Scatter Plot (for a given country), zero
+        for Scatter Plot (for a given year))
+      </h4>
+      <mat-form-field appearance="fill" color="warn">
+        <mat-label>Countries*</mat-label>
+        <mat-select [formControl]="country" multiple>
+          <mat-option
+            *ngFor="let country of availableCountries"
+            [value]="country"
+            >{{ country }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Form to pick indicators-->
+      <h4>
+        Pick indicators (up to 3 for Line chart/Bar Chart,exactly 2 for both
+        types of Scatter Plot)
+      </h4>
+      <mat-form-field appearance="fill" [style.width.px]="1000" color="warn">
+        <mat-label>Indicators*</mat-label>
+        <mat-select [formControl]="indicator" multiple>
+          <mat-option
+            *ngFor="let indicator of availableIndicators"
+            [value]="indicator"
+            >{{ indicator }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Form to start year-->
+      <h4>
+        Pick start year and end year (pick just start year for Scatter Plot (for
+        a given year))
+      </h4>
+      <mat-form-field appearance="fill" color="warn">
+        <mat-label>From*</mat-label>
+        <mat-select [formControl]="startYearTemp">
+          <mat-option *ngFor="let year of availableYears" [value]="year">{{
+            year
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Form to pick end year-->
+      <mat-form-field appearance="fill" color="warn">
+        <mat-label>To*</mat-label>
+        <mat-select [formControl]="endYearTemp">
+          <mat-option *ngFor="let year of availableYears" [value]="year">{{
+            year
+          }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!-- Form to pick aggregation-->
+      <h4>
+        Pick aggregation type(aggregation not available for Scatter Plot (for a
+        given year))
+      </h4>
+      <mat-form-field appearance="fill" color="warn">
+        <mat-label>Aggregation Type*</mat-label>
+        <mat-select [formControl]="aggregation">
+          <mat-option
+            *ngFor="let aggregation of availableAggregations"
+            [value]="aggregation"
+            >{{ aggregation }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Button to start the graph creation-->
+    <h4></h4>
+    <button mat-raised-button color="warn" (click)="prepareGraph()">
+      Get Graph
+    </button>
+
+    <!--Div that contains the charts-->
+    <div id="charts">
+      <!--Place the graph output of the linechart component and the values that are given to it as input-->
+      <app-linechart
+        [lineDataToPlot]="lineDataToPlot"
+        [countries]="lineChartCountries"
+        [indicators]="lineChartIndicators"
+        [fiveYearsAggregation]="lineChartFiveYearsAggregation"
+        [tenYearsAggregation]="lineChartTenYearsAggregation"
+        [twentyYearsAggregation]="lineChartTwentyYearsAggregation"
+        [startYear]="lineChartStartYear"
+        [endYear]="lineChartEndYear"
+      ></app-linechart>
+       <!--Place the graph output of the barchart component and the values that are given to it as input-->
+      <app-barchart
+        [barDataToPlot]="barDataToPlot"
+        [countries]="barChartCountries"
+        [indicators]="barChartIndicators"
+        [fiveYearsAggregation]="barChartFiveYearsAggregation"
+        [tenYearsAggregation]="barChartTenYearsAggregation"
+        [twentyYearsAggregation]="barChartTwentyYearsAggregation"
+        [startYear]="barChartStartYear"
+        [endYear]="barChartEndYear"
+      ></app-barchart>
+       <!--Place the graph output of the scatterplot component and the values that are given to it as input-->
+      <app-scatterplot
+        [scatterDataToPlot]="scatterDataToPlot"
+        [country]="scatterPlotCountry"
+        [indicators]="scatterPlotIndicators"
+        [fixedYear]="fixedYear"
+        [year]="scatterPlotYear"
+      ></app-scatterplot>
+    </div>
+  </body>
+</html>
