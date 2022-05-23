@@ -23,11 +23,11 @@ Delivarable are in greek for the class' purposes.
 To run the app in your machine:
 1. You need to install npm in server and charts-generator directories to be able to run the app.
 2. To run the server: 
-    cd server/src
-    node index.js
+    cd server/src\
+    node index.js\
 3. To run the client:
-    cd charts-generator/src
-    ng serve --open(the browser opens automatically)
+    cd charts-generator/src\
+    ng serve --open(the browser opens automatically)\
 
 ## Contributor
 + [Marios Iakovidis](https://github.com/mariosjkb)
