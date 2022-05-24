@@ -15,7 +15,7 @@ The server part of the app is implemented in Node.js 16.14.2. The server gets fr
 The client part of the app (charts-generator) is implemented in Angular 13.3.2. Charts-generator gets input from the users about what type of graph and data they want to create a graph for, retrieves the data from the server via Fetch API and constructs the graph using D3.js.
 ETL scripts were used for data extraction and transformation from xlsx to txt format in ETL directory.
 Data contains the .csv files that were loaded in the database.
-dDta for extraction contains the original data files and the extracted information for the indicators we wanted.
+Data for extraction contains the original data files and the extracted information for the indicators we wanted.
 In ETL directory, the database schema is also available.
 Delivarable are in greek for the class' purposes.
 
